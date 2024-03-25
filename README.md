@@ -11,7 +11,7 @@ A 0...9 numpad with '.' and backspace capability. Useful for when you're on the 
 Log When Keystrokes are sent, as well as when socket connections are established / disconnected. 
 
 ### Navigation Keys 
-[Navigation Arrows](https://firebasestorage.googleapis.com/v0/b/storeshit.appspot.com/o/numpad-js%2Farrows.jpg?alt=media&token=6d21ea4f-51f0-4c9d-85c0-8bcb6524e8d2)
+![Navigation Arrows](https://firebasestorage.googleapis.com/v0/b/storeshit.appspot.com/o/numpad-js%2Farrows.jpg?alt=media&token=6d21ea4f-51f0-4c9d-85c0-8bcb6524e8d2)
  - Tab
  - ULDR Arrows (in Arrow Mode), 
  - Return/Enter Key
