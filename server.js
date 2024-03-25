@@ -1,9 +1,10 @@
-import WebSocket, { WebSocketServer } from "ws";
+import { WebSocketServer } from "ws";
 import { config as envConfig } from "dotenv";
 import { createServer } from "http";
 import robot from "robotjs";
 import { readFileSync } from "fs";
 import { networkInterfaces } from "os";
+
 envConfig();
 
 //helper , gets the current exposable ip address to share with local network...

@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>My Remote</title>
+        <title>NUMPAD | Websocket Numpad</title>
         <style>
             body,
             html {
@@ -13,25 +13,103 @@
                 display: grid;
                 place-items: center;
             }
+            #arrows {
+                display: none;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%,-50%);
+                width: 3in;
+                min-width: 350px;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+                z-index: 10;
+            } 
+            /*  */
+            #haze {
+                display: none;
+                background-color: rgba(0, 0, 0, 0.9);
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+            }
+
+            #mode-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                top: 10px; 
+                left: 10px;
+                font-size: 0.9rem;
+                z-index: 100;
+                padding: 10px;
+                background-color: #000;
+                color: white;
+                border: none;
+                transition: all 0.3s ease;
+            }
+
+            #mode-toggle:focus, #mode-toggle:hover, #mode-toggle:active {
+                border-radius: 10px;
+            } 
+            
+
             #numpad {
                 position: absolute;
                 left: 50%;
                 top: 50%;
-                transform: translate(-50%, -50%);
+                transform: translate(-50%,-50%);
                 display: grid;
-                width: 50vw;
+                width: 3in;
                 min-width: 350px;
-                aspect-ratio: 1/1;
                 grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
             }
-            #numpad button {
+            .key {
+                background-color: transparent;
+                border: 1px solid #000;
                 width: 100%;
+                aspect-ratio: 1/1;
                 color: #000;
                 font-size: 2rem;
+                border-radius: 100%;
+                transition: all 0.3s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                
             }
+
+            #arrows .key {
+                color: white;
+                border: 1px solid #fff;
+            } 
+
+            .key:active, .key:focus, .key:hover {
+                background-color: #000;
+                color: #fff;
+                box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+            } 
+            .key:active {
+                transform: scale(1.1);
+            } 
+
+            .key svg {
+                object-fit: contain;
+                width: 2rem;
+            }
+
+
         </style>
     </head>
     <body>
+        <button id="mode-toggle">
+            Mode : Numbers
+        </button>
+
         <section id="numpad">
             <button class="key" id="7">7</button>
             <button class="key" id="8">8</button>
@@ -44,8 +122,48 @@
             <button class="key" id="3">3</button>
             <button class="key" id="0">0</button>
             <button class="key" id=".">.</button>
-            <button class="key" id="backspace"><-</button>
+            <button class="key" id="backspace">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9.75 14.25 12m0 0 2.25 2.25M14.25 12l2.25-2.25M14.25 12 12 14.25m-2.58 4.92-6.374-6.375a1.125 1.125 0 0 1 0-1.59L9.42 4.83c.21-.211.497-.33.795-.33H19.5a2.25 2.25 0 0 1 2.25 2.25v10.5a2.25 2.25 0 0 1-2.25 2.25h-9.284c-.298 0-.585-.119-.795-.33Z" />
+                </svg>
+            </button>
         </section>
+        
+        <div id="haze">
+        </div>
+        <section id ="arrows">
+            <span></span>
+            <button class="key" id="up">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
+                </svg>
+                  
+            </button>
+            <span></span>
+            <button class="key" id="left">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                  </svg>
+                  
+            </button>
+            <span></span>
+            <button class="key" id="right">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                  </svg>
+                  
+            </button>
+            <span></span>
+            <button class="key" id="down">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
+                  </svg>
+                  
+            </button>
+            <span></span>
+
+        </section>
+
 
         <script>
             const socket = new WebSocket("ws://<IP_ADDR>:8080");
@@ -58,16 +176,28 @@
                 });
             }
 
-            let lastPos,
-                isMoving = false;
+            let mode = false;
+            const modeButton = document.querySelector("#mode-toggle")
+            const haze = document.querySelector("#haze")
 
-            function onTrackpadTouch(e) {}
+            const arrowsContainer = document.querySelector("#arrows")
 
-            function useTrackpadMode() {
-                numpad.style.display = "none";
-                window.addEventListener("touchstart");
-            }
-            function useNumpad() {}
+
+            modeButton.addEventListener("click", (e)=>{
+                if(mode){
+                    arrowsContainer.style.display = "none"
+                    haze.style.display = "none"
+                    modeButton.textContent = "Mode : Numbers"
+                } else { 
+                    modeButton.textContent = "Mode : Arrows"
+                    arrowsContainer.style.display = "grid"
+                    haze.style.display = "flex"
+                }
+                mode = !mode
+            })
+
+
+
         </script>
     </body>
 </html>

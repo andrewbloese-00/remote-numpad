@@ -1,11 +1,11 @@
 {
   "name": "remote",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.2",
+  "description": "A nodejs server that allows you to utilize any device with a web browser as a numpad for your computer. It launches an http server and websocket server hosted on your device, which you can connect to from a browser to transmit number and arrow keystrokes. ",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "keywords": [
     "websockets",
