@@ -1,0 +1,22 @@
+{
+  "name": "remote",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "websockets",
+    "nodejs",
+    "remote control"
+  ],
+  "author": "Andrew Bloese (andrewbloese-00)",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "robotjs": "^0.6.0",
+    "ws": "^8.16.0"
+  }
+}
