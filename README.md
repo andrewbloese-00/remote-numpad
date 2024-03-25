@@ -1,8 +1,7 @@
 # Remote Numpad
 A nodejs server that allows you to connect devices on your local network to send keystrokes to a host device. It launches an http server and websocket server hosted at your (host) device's IP address.
 
-![Terminal Screen](https://firebasestorage.googleapis.com/v0/b/storeshit.appspot.com/o/numpad-js%2Fterm.png?alt=media&token=9195b8f9-42b3-4b48-aad3-0887f3d65e77)
-
+![Terminal Screen](https://firebasestorage.googleapis.com/v0/b/storeshit.appspot.com/o/numpad-js%2Fterm.png?alt=media&token=7f98635f-aaa7-4d87-bee9-688011acfca1)
 ## Features
 ### Numpad
 ![Number Keypad Inputs](https://firebasestorage.googleapis.com/v0/b/storeshit.appspot.com/o/numpad-js%2Fnums.jpg?alt=media&token=3972b7a6-08e6-440a-be4d-78317dc69086)
